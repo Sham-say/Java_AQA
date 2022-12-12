@@ -6,8 +6,8 @@ public class MyFirstProgramF {
     hello("user");
     hello("Shamil");
 
-    double len = 5;
-    System.out.println("Площадь квадрата со стоороной " + len + " = " + area(len));
+    double l = 5; //переменная
+    System.out.println("Площадь квадрата со стоороной " + l + " = " + area(l)); //l=5, area(len) = (5 * 5) 
 
     double a = 4;
     double b = 6;
@@ -17,9 +17,12 @@ public class MyFirstProgramF {
   public static void hello(String somebody) {
     System.out.println("Hello, " + somebody + "!");
   }
-  public static double area(double l) {
-    return l * l;
+
+  public static double area(double len)  //вычисляемая переменная
+  {
+    return len * len; //
   }
+
   public static double area(double a, double b) {
     return a * b;
   }
