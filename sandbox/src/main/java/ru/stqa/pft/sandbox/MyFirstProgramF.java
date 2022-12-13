@@ -6,24 +6,23 @@ public class MyFirstProgramF {
     hello("user");
     hello("Shamil");
 
-    double l = 5; //переменная
-    System.out.println("Площадь квадрата со стоороной " + l + " = " + area(l)); //l=5, area(len) = (5 * 5) 
+    Square s = new Square(5);
+    System.out.println("Площадь квадрата со стоороной " + s.l + " = " + area(s));
 
-    double a = 4;
-    double b = 6;
-    System.out.println("Площадь квадрата со стооронами " + a + " и " + b + " = " + area(a, b));
+    Rectangle r = new Rectangle(4, 6);
+    System.out.println("Площадь прямоугольника со стооронами " + r.a + " и " + r.b + " = " + area(r));
   }
 
   public static void hello(String somebody) {
     System.out.println("Hello, " + somebody + "!");
   }
 
-  public static double area(double len)  //вычисляемая переменная
+  public static double area(Square s)
   {
-    return len * len; //
+    return s.l * s.l; //
   }
 
-  public static double area(double a, double b) {
-    return a * b;
+  public static double area(Rectangle r) {
+    return r.a * r.b;
   }
 }
