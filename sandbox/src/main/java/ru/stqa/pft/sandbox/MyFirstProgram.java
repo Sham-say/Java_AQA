@@ -2,17 +2,25 @@ package ru.stqa.pft.sandbox;
 
 public class MyFirstProgram {
   public static void main(String[] args) {
+    hello("world");
+    hello("user");
+    hello("Shamil");
 
-    //Переменная String - строка
-    String somebody = "world";
-    System.out.println("Hello, " + somebody + "!");
+    Square s = new Square(5);
+    System.out.println("Площадь квадрата со стоороной " + s.l + " = " + s.area());
 
-    /* Переменные
-    int - целочисленные
-    double - число с плавующей точкой (число двойной точности) */
-    double l = 8;
-    double s = l * l;
-    System.out.println("Площадь квадрата со стороной " + l + " = " + s);
+    Rectangle r = new Rectangle(4, 6);
+    System.out.println("Площадь прямоугольника со стооронами " + r.a + " и " + r.b + " = " + r.area());
+
+    Point p1 = new Point(10,17);
+    Point p2 = new Point(16,20);
+
+    System.out.println("Расстояние между точками " + "p1" + "("+p1.x + ":" + p1.y + ")" + " и " + "p2" + "(" + p2.x + ":" + p2.y + ")" + " =" + p1.distance(p2));
+
+  }
+
+  public static void hello(String somebody){
+    System.out.println("Hello " + somebody + "!");
   }
 
 }
