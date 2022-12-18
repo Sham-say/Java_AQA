@@ -1,49 +1,85 @@
 package ru.stqa.pft.addressbook;
 
 public class ContactData {
-	private final String familia;
-	private final String name;
-	private final String adress;
-	private final String number1;
-	private final String number2;
-	private final String number3;
-	private final String email;
+	private final String firstName;
+	private final String middleName;
+	private final String lastName;
+	private final String title;
+	private final String companyName;
+	private final String fullAddress;
+	private final String phoneNumber;
+	private final String mailContact;
+	private final String homePage;
+	private final String day;
+	private final String month;
+	private final String year;
+	private final String notesContact;
 
-	public ContactData(String familia, String Name, String adress, String number1, String number2, String number3, String email) {
-		this.familia = familia;
-		name = Name;
-		this.adress = adress;
-		this.number1 = number1;
-		this.number2 = number2;
-		this.number3 = number3;
-		this.email = email;
+	public ContactData(String firstName, String middleName, String lastName, String title, String companyName, String fullAddress, String phoneNumber, String mailContact, String homePage, String day, String month, String year, String notesContact) {
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+		this.title = title;
+		this.companyName = companyName;
+		this.fullAddress = fullAddress;
+		this.phoneNumber = phoneNumber;
+		this.mailContact = mailContact;
+		this.homePage = homePage;
+		this.day = day;
+		this.month = month;
+		this.year = year;
+		this.notesContact = notesContact;
 	}
 
-	public String getFamilia() {
-		return familia;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public String getName() {
-		return name;
+	public String getMiddleName() {
+		return middleName;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public String getNumber1() {
-		return number1;
+	public String getTitle() {
+		return title;
 	}
 
-	public String getNumber2() {
-		return number2;
+	public String getCompanyName() {
+		return companyName;
 	}
 
-	public String getNumber3() {
-		return number3;
+	public String getFullAddress() {
+		return fullAddress;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public String getMailContact() {
+		return mailContact;
+	}
+
+	public String getHomePage() {
+		return homePage;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public String getNotesContact() {
+		return notesContact;
 	}
 }
