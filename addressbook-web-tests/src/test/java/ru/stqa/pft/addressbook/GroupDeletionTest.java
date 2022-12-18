@@ -14,5 +14,4 @@ public class GroupDeletionTest extends TestBase {
     returnToGroupPage();
     System.out.println("group deleted successfully!");
   }
-
 }
