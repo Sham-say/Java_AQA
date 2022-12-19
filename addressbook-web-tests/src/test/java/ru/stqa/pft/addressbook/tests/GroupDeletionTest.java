@@ -8,10 +8,10 @@ public class GroupDeletionTest extends TestBase {
 
   @Test
   public void testGroupDeletion() {
-    app.gotoGroupPage();
-    app.selectGroup();
-    app.deleteSelectedGroups();
-    app.returnToGroupPage();
+    app.getNavigatorHelper().gotoGroupPage();
+    app.getGroupHelper().selectGroup();
+    app.getGroupHelper().deleteSelectedGroups();
+    app.getGroupHelper().returnToGroupPage();
     System.out.println("group deleted successfully!");
   }
 }
