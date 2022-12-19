@@ -37,7 +37,6 @@ public class ApplicationManager {
 	}
 
 
-
 	private boolean isElementPresent(By by) {
 		try {
 			wd.findElement(by);
