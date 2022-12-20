@@ -16,6 +16,11 @@ public class NavigatorHelper extends HelperBase {
 	}
 
 	public void gotoAddNewContact() {
+
 		wd.findElement(By.linkText("add new")).click();
+	}
+
+	public void gotoHomePage() {
+		click(By.linkText("home"));
 	}
 }
