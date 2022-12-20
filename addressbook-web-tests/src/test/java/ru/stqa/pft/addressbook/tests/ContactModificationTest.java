@@ -10,6 +10,6 @@ public class ContactModificationTest extends TestBase{
 		app.getContactGroup().fillContactForm(new ContactData("ShamilM", "SayakhovM", "Fagimovich", "test1", "companys", "Hogvarts", "123456789", "Test@mail.ru", "www.home.ru", "14", "June", "1996", "kek"));
 		app.getContactGroup().submitContactUpdate();
 		app.getContactGroup().returnToHomePage();
-		System.out.println("contact updete successfully!");
+		System.out.println("contact update successfully!");
 	}
 }
