@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
 	public WebDriver wd;
 
-	private ContactHelper contactGroup;
+	private ContactHelper contactHelper;
 	private SessionHelper sessionHelper;
 	private NavigatorHelper navigatorHelper;
 	private GroupHelper groupHelper;
@@ -23,7 +23,7 @@ public class ApplicationManager {
 		wd = new FirefoxDriver(new FirefoxOptions().setBinary("C:/Program Files/Mozilla Firefox/firefox.exe"));
 		wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		wd.get("http://localhost/addressbook/");
-		contactGroup = new ContactHelper(wd);
+		contactHelper = new ContactHelper(wd);
 		groupHelper = new GroupHelper(wd);
 		navigatorHelper = new NavigatorHelper(wd);
 		sessionHelper = new SessionHelper(wd);
@@ -63,7 +63,7 @@ public class ApplicationManager {
 		return navigatorHelper;
 	}
 
-	public ContactHelper getContactGroup() {
-		return contactGroup;
+	public ContactHelper getContactHelper() {
+		return contactHelper;
 	}
 }
