@@ -1,9 +1,13 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.Browser;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 
@@ -18,9 +22,21 @@ public class ApplicationManager {
 	String userLogin = "admin";
 	String userPassword = "secret";
 	private JavascriptExecutor js;
+	private Browser browser;
+
+
+	public ApplicationManager(Browser browser) {
+		this.browser = browser;
+	}
 
 	public void init() {
-		wd = new FirefoxDriver(new FirefoxOptions().setBinary("C:/Program Files/Mozilla Firefox/firefox.exe"));
+		if (Objects.equals(browser, Browser.FIREFOX)) {
+			wd = new FirefoxDriver(new FirefoxOptions().setBinary("C:/Program Files/Mozilla Firefox/firefox.exe"));
+		} else if (Objects.equals(browser, Browser.CHROME)) {
+			wd = new ChromeDriver();
+		} else if (Objects.equals(browser, Browser.EDGE)) {
+			wd = new EdgeDriver();
+		}
 		wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		wd.get("http://localhost/addressbook/");
 		contactHelper = new ContactHelper(wd);
