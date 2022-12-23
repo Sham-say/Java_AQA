@@ -37,7 +37,7 @@ public class ApplicationManager {
 		} else if (Objects.equals(browser, Browser.EDGE)) {
 			wd = new EdgeDriver();
 		}
-		wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		wd.get("http://localhost/addressbook/");
 		contactHelper = new ContactHelper(wd);
 		groupHelper = new GroupHelper(wd);
@@ -62,14 +62,8 @@ public class ApplicationManager {
 		}
 	}
 
-	private boolean isAlertPresent() {
-		try {
-			wd.switchTo().alert();
-			return true;
-		} catch (NoAlertPresentException e) {
-			return false;
-		}
-	}
+
+
 
 	public GroupHelper getGroupHelper() {
 		return groupHelper;

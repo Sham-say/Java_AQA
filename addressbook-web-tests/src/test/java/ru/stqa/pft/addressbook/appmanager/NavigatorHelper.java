@@ -5,10 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class NavigatorHelper extends HelperBase {
 
-	public NavigatorHelper(WebDriver wd) {
-
-		super(wd);
-	}
+	public NavigatorHelper(WebDriver wd) {super(wd);}
 
 	public void gotoGroupPage() {
 
