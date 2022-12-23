@@ -9,10 +9,9 @@ public class GroupCreationTests extends TestBase {
 	public void testGroupCreation()  {
 		app.getNavigatorHelper().gotoGroupPage();
 		app.getGroupHelper().initGroupCreation();
-		app.getGroupHelper().fillGroupForm(new GroupData("Tes5", null, null));
+		app.getGroupHelper().fillGroupForm(new GroupData("test1", null, null));
 		app.getGroupHelper().submitGroupCreation();
 		app.getGroupHelper().returnToGroupPage();
-		System.out.println("group added successfully!");
 	}
 
 }
