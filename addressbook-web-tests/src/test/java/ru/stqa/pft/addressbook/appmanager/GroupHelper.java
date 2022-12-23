@@ -7,7 +7,7 @@ import ru.stqa.pft.addressbook.model.GroupData;
 public class GroupHelper extends HelperBase {
 
 	//переменная для имени создаваемой группы
-	public String groupName = "group Barancev";
+	//public String groupName = "group Barancev";
 
 	public GroupHelper(WebDriver wd) {
 
