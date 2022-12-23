@@ -8,16 +8,22 @@ public class NavigatorHelper extends HelperBase {
 	public NavigatorHelper(WebDriver wd) {super(wd);}
 
 	public void gotoGroupPage() {
-
+		if (isElementPresent(By.tagName("h1"))
+						&& wd.findElement(By.tagName("h1")).getText().equals("Groups")
+						&& isElementPresent(By.name("new"))) {
+			return;
+		}
 		click(By.linkText("groups"));
 	}
 
-	public void gotoAddNewContact() {
-
-		wd.findElement(By.linkText("add new")).click();
+	public void gotoHomePage() {
+		if (isElementPresent(By.id("maintable"))) {
+			return;
+		}
+		click(By.linkText("home"));
 	}
 
-	public void gotoHomePage() {
-		click(By.linkText("home"));
+	public void gotoAddNewContact() {
+		wd.findElement(By.linkText("add new")).click();
 	}
 }

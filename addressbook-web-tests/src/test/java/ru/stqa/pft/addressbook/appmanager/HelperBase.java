@@ -33,7 +33,7 @@ public class HelperBase {
 		new Select(wd.findElement(locator)).selectByVisibleText(text);
 	}
 
-	public boolean isAlertPresent() {
+	public boolean isElementPresent() {
 		try {
 			wd.switchTo().alert();
 			return true;
@@ -42,7 +42,7 @@ public class HelperBase {
 		}
 	 }
 
-	protected boolean isAlertPresent(By locator) {
+	protected boolean isElementPresent(By locator) {
 		try {
 			wd.findElement(locator);
 			return true;
