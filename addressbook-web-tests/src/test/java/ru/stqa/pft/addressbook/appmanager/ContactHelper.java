@@ -15,7 +15,10 @@ public class ContactHelper extends HelperBase {
 	public void fillContactForm(ContactData contactData, boolean creation) {
 
 		type(By.name("firstname"), contactData.getFirstName());
-		type(By.name("middlename"),contactData.getMiddleName());
+		type(By.name("lastname"), contactData.getLastName());
+		type(By.name("address"), contactData.getAddress());
+		type(By.name("email"), contactData.getEmail());
+		type(By.name("home"), contactData.getHome());
 
 		if (creation) {
 			new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());

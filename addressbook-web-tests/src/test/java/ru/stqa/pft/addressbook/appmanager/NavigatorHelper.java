@@ -22,7 +22,4 @@ public class NavigatorHelper extends HelperBase {
 		}
 		click(By.linkText("home"));
 	}
-
-	//public void gotoAddNewContact() {
-		//wd.findElement(By.linkText("add new")).click();}
 }
