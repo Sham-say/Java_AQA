@@ -33,14 +33,6 @@ public class HelperBase {
 		new Select(wd.findElement(locator)).selectByVisibleText(text);
 	}
 
-	public boolean isElementPresent() {
-		try {
-			wd.switchTo().alert();
-			return true;
-		} catch (NoAlertPresentException e) {
-			return false;
-		}
-	 }
 
 	protected boolean isElementPresent(By locator) {
 		try {
