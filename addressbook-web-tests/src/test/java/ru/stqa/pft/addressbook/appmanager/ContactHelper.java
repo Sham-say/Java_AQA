@@ -52,5 +52,14 @@ public class ContactHelper extends HelperBase {
 	public boolean isThereAContact() {
 		return isElementPresent(By.name("selected[]"));
 	}
+
+	public boolean isThereAGroupWithContact() {
+		int  countElements = wd.findElements(By.xpath("//*[@id=\"content\"]/form/select[5]/option")).size();
+		if (countElements >= 2){
+			//System.out.println(countElements);
+			return false;
+		}
+		return true;
+	}
 }
 
