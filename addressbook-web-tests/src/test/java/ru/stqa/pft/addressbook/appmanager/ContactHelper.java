@@ -42,7 +42,7 @@ public class ContactHelper extends HelperBase {
 		click(By.name("update"));
 	}
 
-	public void createContact(ContactData contact, boolean b) {
+	public void createContact(ContactData contact) {
 		initContactCreation();
 		fillContactForm(contact, true);
 		submitContactCreation();
