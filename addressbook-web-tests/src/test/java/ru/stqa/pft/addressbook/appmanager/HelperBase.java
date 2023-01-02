@@ -28,10 +28,6 @@ public class HelperBase {
 		}
 	}
 
-	protected void clickSelect(By locator, String text) {
-		wd.findElement(locator).click();
-		new Select(wd.findElement(locator)).selectByVisibleText(text);
-	}
 
 
 	protected boolean isElementPresent(By locator) {
@@ -40,6 +36,20 @@ public class HelperBase {
 			return true;
 		} catch (NoSuchElementException ex) {
 			return false;
+		}
+	}
+
+	protected void clickSelect(By locator, String text) {
+		if (text != null) {
+			String selectText = wd.findElement(locator).getAttribute("value");
+			if (!text.equals(selectText)) {
+				wd.findElement(locator).click();
+				try {
+					new Select(wd.findElement(locator)).selectByVisibleText(text);
+				} catch (NoSuchElementException e){
+					wd.findElement(By.xpath("//select[5]/option[2]")).click();
+				}
+			}
 		}
 	}
 }
