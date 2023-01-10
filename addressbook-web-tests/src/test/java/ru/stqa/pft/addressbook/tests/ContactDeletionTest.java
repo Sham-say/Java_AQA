@@ -5,13 +5,16 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.sql.SQLOutput;
+import java.util.List;
+
 public class ContactDeletionTest extends TestBase {
 
 
 	@Test
 	public void testContactDeletion() throws InterruptedException {
 		app.getNavigatorHelper().gotoHomePage();
-		int before = app.getContactHelper().getContactCont();
+		List<ContactData> before = app.getContactHelper().getContactList();
 		if(!app.getContactHelper().isThereAContact()){
 			app.getNavigatorHelper().gotoGroupPage();
 			if(!app.getGroupHelper().isThereAGroup()){
@@ -23,7 +26,7 @@ public class ContactDeletionTest extends TestBase {
 		app.getContactHelper().selectContact();
 		app.getContactHelper().submitContactDelete();
 		Thread.sleep(5000);
-		int after = app.getContactHelper().getContactCont();
-		Assert.assertEquals(after, before - 1);
+		List<ContactData> after = app.getContactHelper().getContactList();
+		Assert.assertEquals(after.size(), before.size() - 1);
 	}
 }
