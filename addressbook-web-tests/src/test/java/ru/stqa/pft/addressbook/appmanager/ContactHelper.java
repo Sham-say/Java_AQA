@@ -32,9 +32,10 @@ public class ContactHelper extends HelperBase {
 
 	public void selectContact() {click(By.name("selected[]"));}
 
-	public void submitContactDelete() {
+	public void submitContactDelete(int timeOut) throws InterruptedException {
 		click(By.xpath("//input[@value='Delete']"));
 		wd.switchTo().alert().accept();
+		timeOut(timeOut);
 	}
 
 	public void submitContactCreation() {click(By.name("submit"));}

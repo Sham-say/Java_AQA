@@ -24,8 +24,8 @@ public class ContactDeletionTest extends TestBase {
 			app.getContactHelper().createContact(new ContactData("test_first", "test_last", "Hogwars", "test@mail.com", "89876543210", "test555"));
 		}
 		app.getContactHelper().selectContact();
-		app.getContactHelper().submitContactDelete();
-		Thread.sleep(5000);
+		app.getContactHelper().submitContactDelete(5);
+
 		List<ContactData> after = app.getContactHelper().getContactList();
 		Assert.assertEquals(after.size(), before.size() - 1);
 	}

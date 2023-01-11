@@ -1,16 +1,21 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.concurrent.TimeUnit;
 
 public class HelperBase {
 	public WebDriver wd;
 
 	public HelperBase(WebDriver wd) {
 		this.wd = wd;
+	}
+
+	protected static void timeOut(int timeOut) throws InterruptedException {
+		TimeUnit.SECONDS.sleep(timeOut);
 	}
 
 	protected void click(By locator) {
