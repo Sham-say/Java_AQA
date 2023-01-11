@@ -14,7 +14,6 @@ public class ContactDeletionTest extends TestBase {
 	@Test
 	public void testContactDeletion() throws InterruptedException {
 		app.getNavigatorHelper().gotoHomePage();
-		List<ContactData> before = app.getContactHelper().getContactList();
 		if(!app.getContactHelper().isThereAContact()){
 			app.getNavigatorHelper().gotoGroupPage();
 			if(!app.getGroupHelper().isThereAGroup()){
@@ -23,9 +22,9 @@ public class ContactDeletionTest extends TestBase {
 			app.getNavigatorHelper().gotoHomePage();
 			app.getContactHelper().createContact(new ContactData("test_first", "test_last", "Hogwars", "test@mail.com", "89876543210", "test555"));
 		}
+		List<ContactData> before = app.getContactHelper().getContactList();
 		app.getContactHelper().selectContact();
 		app.getContactHelper().submitContactDelete(5);
-
 		List<ContactData> after = app.getContactHelper().getContactList();
 		Assert.assertEquals(after.size(), before.size() - 1);
 	}
