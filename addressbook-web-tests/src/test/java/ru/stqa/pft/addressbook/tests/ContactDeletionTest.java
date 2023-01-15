@@ -23,7 +23,7 @@ public class ContactDeletionTest extends TestBase {
 			app.getContactHelper().createContact(new ContactData("test_first", "test_last", "Hogwars", "test@mail.com", "89876543210", "test555"));
 		}
 		List<ContactData> before = app.getContactHelper().getContactList();
-		app.getContactHelper().selectContact();
+		app.getContactHelper().selectContact(before.size() - 1);
 		app.getContactHelper().submitContactDelete(5);
 		List<ContactData> after = app.getContactHelper().getContactList();
 		Assert.assertEquals(after.size(), before.size() - 1);
