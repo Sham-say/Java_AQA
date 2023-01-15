@@ -30,7 +30,7 @@ public class ContactHelper extends HelperBase {
 		}
 	}
 
-	public void selectContact(int index) {click(By.name("selected[]"));}
+	public void selectContact() {click(By.name("selected[]"));}
 
 	public void submitContactDelete(int timeOut) throws InterruptedException {
 		click(By.xpath("//input[@value='Delete']"));
@@ -40,7 +40,7 @@ public class ContactHelper extends HelperBase {
 
 	public void submitContactCreation() {click(By.name("submit"));}
 	public void returnToHomePage() {click(By.linkText("home page"));}
-	public void initContactModification() {click(By.cssSelector("img[alt='Edit']"));}
+	public void initContactModification(int index) {click(By.cssSelector("img[alt='Edit']"));}
 
 	public void submitContactModification() {
 		click(By.name("update"));
@@ -75,7 +75,7 @@ public class ContactHelper extends HelperBase {
 		for (WebElement element : elements){
 			String lastName = element.findElement(By.cssSelector("td:nth-child(2)")).getText();
 			String firstName = element.findElement(By.cssSelector("td:nth-child(3)")).getText();
-			String id =element.findElement(By.tagName("input")).getAttribute("id");
+			String id = element.findElement(By.tagName("input")).getAttribute("id");
 			ContactData contact = new ContactData(id, firstName, lastName, null, null, null, null);
 			contacts.add(contact);
 		}

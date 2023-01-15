@@ -6,8 +6,6 @@ public class ContactData {
 
 	private final String id;
 	private final String firstName;
-
-
 	private String lastName;
 	private String address;
 	private String email;
@@ -45,9 +43,7 @@ public class ContactData {
 
 		ContactData that = (ContactData) o;
 
-		if (!Objects.equals(id, that.id)) return false;
-		if (!Objects.equals(firstName, that.firstName)) return false;
-		return Objects.equals(lastName, that.lastName);
+		return Objects.equals(id, that.id) && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName);
 	}
 
 	@Override
