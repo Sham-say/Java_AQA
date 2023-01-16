@@ -40,7 +40,9 @@ public class ContactHelper extends HelperBase {
 
 	public void submitContactCreation() {click(By.name("submit"));}
 	public void returnToHomePage() {click(By.linkText("home page"));}
-	public void initContactModification(int index) {click(By.cssSelector("img[alt='Edit']"));}
+	public void initContactModification(int index) {
+		wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+	}
 
 	public void submitContactModification() {
 		click(By.name("update"));
