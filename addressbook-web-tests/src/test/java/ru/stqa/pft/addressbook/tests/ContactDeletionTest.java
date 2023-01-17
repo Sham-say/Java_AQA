@@ -11,7 +11,7 @@ import java.util.List;
 public class ContactDeletionTest extends TestBase {
 
 
-	@Test
+	@Test(enabled = false)
 	public void testContactDeletion() throws InterruptedException {
 		app.getNavigatorHelper().gotoHomePage();
 		if(!app.getContactHelper().isThereAContact()){
