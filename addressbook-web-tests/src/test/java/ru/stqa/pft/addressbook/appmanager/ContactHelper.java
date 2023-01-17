@@ -30,7 +30,8 @@ public class ContactHelper extends HelperBase {
 		}
 	}
 
-	public void selectContact() {click(By.name("selected[]"));}
+	public void selectContact(int index) {
+		wd.findElements(By.name("selected[]")).get(index).click();}
 
 	public void submitContactDelete(int timeOut) throws InterruptedException {
 		click(By.xpath("//input[@value='Delete']"));
@@ -52,6 +53,13 @@ public class ContactHelper extends HelperBase {
 		initContactCreation();
 		fillContactForm(contact, true);
 		submitContactCreation();
+		returnToHomePage();
+	}
+
+	public void modifyContact(int index, ContactData contact) {
+		initContactModification(index);
+		fillContactForm(contact, false);
+		submitContactModification();
 		returnToHomePage();
 	}
 
