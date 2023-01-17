@@ -16,14 +16,15 @@ public class ContactDeletionTest extends TestBase {
 		if (app.contact().list().size() == 0) {
 			app.goTo().groupPage();
 			if (app.group().list().size() == 0) {
-				app.group().create(new GroupData("Test1", "test2", "test3"));
+				app.group().create(new GroupData().withName("Test1"));
 			}
 			app.goTo().homePage();
-			app.contact().create(new ContactData("test_first", "test_last", "Hogwars", "test@mail.com", "89876543210", "test1"));
+			app.contact().create(new ContactData()
+					.withFirstName("test_first").withLastName("test_last").withAddress("Hogwars").withEmail("test@mail.com").withHome("89876543210").withGroup("Test1"));
 		}
 	}
 
-	@Test(enabled = false)
+	@Test//(enabled = false)
 	public void testContactDeletion() throws InterruptedException {
 		List<ContactData> before = app.contact().list();
 		int index = before.size() - 1;
