@@ -6,24 +6,24 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactCreationTests extends TestBase {
 
 
+
 	@Test(enabled = false)
 	public void addContact(){
-		app.getNavigatorHelper().gotoHomePage();
-		List<ContactData> before = app.getContactHelper().getContactList();
-		app.getContactHelper().initContactCreation();
-		if (app.getContactHelper().isThereAGroupWithContact()) {
-			app.getNavigatorHelper().gotoGroupPage();
-			app.getGroupHelper().createGroup(new GroupData("test2", null, null));
+		app.goTo().homePage();
+		List<ContactData> before = app.contact().list();
+		app.contact().initContactCreation();
+		if (app.contact().isThereAGroupWithContact()) {
+			app.goTo().groupPage();
+			app.group().create(new GroupData("test2", null, null));
 		}
 		ContactData contact = new ContactData("test_first", "test_last", "Hogwars", "test@mail.com", "89876543210", "test2");
-		app.getContactHelper().createContact(contact);
-		List<ContactData> after = app.getContactHelper().getContactList();
+		app.contact().create(contact);
+		List<ContactData> after = app.contact().list();
 		Assert.assertEquals(after.size(), before.size() + 1);
 
 		before.add(contact);
