@@ -7,7 +7,9 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class ContactHelper extends HelperBase {
@@ -30,8 +32,10 @@ public class ContactHelper extends HelperBase {
 		}
 	}
 
-	public void selectContact(int index) {
-		wd.findElements(By.name("selected[]")).get(index).click();}
+
+	public void selectContactById(int id) {
+		wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
+	}
 
 	public void submitContactDelete(int timeOut) throws InterruptedException {
 		click(By.xpath("//input[@value='Delete']"));
@@ -41,8 +45,8 @@ public class ContactHelper extends HelperBase {
 
 	public void submitContactCreation() {click(By.name("submit"));}
 	public void returnToHomePage() {click(By.linkText("home page"));}
-	public void initContactModification(int index) {
-		wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click();
+	public void initContactModification(int id) {
+		wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
 	}
 
 	public void submitContactModification() {
@@ -56,8 +60,8 @@ public class ContactHelper extends HelperBase {
 		returnToHomePage();
 	}
 
-	public void modify(int index, ContactData contact) {
-		initContactModification(index);
+	public void modify(ContactData contact) {
+		initContactModification(contact.getId());
 		fillContactForm(contact, false);
 		submitContactModification();
 		returnToHomePage();
@@ -75,12 +79,9 @@ public class ContactHelper extends HelperBase {
 		return true;
 	}
 
-	public int getContactCont() {
-		return wd.findElements(By.name("selected[]")).size();
-	}
 
-	public List<ContactData> list() {
-		List<ContactData> contacts = new ArrayList<ContactData>();
+	public Set<ContactData> all() {
+		Set<ContactData> contacts = new HashSet<ContactData>();
 		List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
 		for (WebElement element : elements){
 			String lastName = element.findElement(By.cssSelector("td:nth-child(2)")).getText();
@@ -89,6 +90,11 @@ public class ContactHelper extends HelperBase {
 			contacts.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName));
 		}
 		return contacts;
+	}
+
+	public void delete(ContactData contact) throws InterruptedException{
+		selectContactById(contact.getId());
+		submitContactDelete(5);
 	}
 }
 
