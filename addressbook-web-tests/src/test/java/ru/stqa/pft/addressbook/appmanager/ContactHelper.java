@@ -46,7 +46,7 @@ public class ContactHelper extends HelperBase {
 	public void submitContactCreation() {click(By.name("submit"));}
 	public void returnToHomePage() {click(By.linkText("home page"));}
 	public void initContactModification(int id) {
-		wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+		wd.findElement(By.cssSelector("a[href='edit.php?id=" + id +"']")).click();
 	}
 
 	public void submitContactModification() {
