@@ -5,11 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 public class ContactHelper extends HelperBase {
@@ -80,8 +78,13 @@ public class ContactHelper extends HelperBase {
 	}
 
 
-	public Set<ContactData> all() {
-		Set<ContactData> contacts = new HashSet<ContactData>();
+	public void delete(ContactData contact) throws InterruptedException{
+		selectContactById(contact.getId());
+		submitContactDelete(5);
+	}
+
+	public Contacts all() {
+		Contacts contacts = new Contacts();
 		List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
 		for (WebElement element : elements){
 			String lastName = element.findElement(By.cssSelector("td:nth-child(2)")).getText();
@@ -90,11 +93,6 @@ public class ContactHelper extends HelperBase {
 			contacts.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName));
 		}
 		return contacts;
-	}
-
-	public void delete(ContactData contact) throws InterruptedException{
-		selectContactById(contact.getId());
-		submitContactDelete(5);
 	}
 }
 
