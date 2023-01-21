@@ -14,7 +14,6 @@ public class ContactData {
 	private String mobilePhone;
 	private String workPhone;
 
-
 	public ContactData withId(int id) {
 
 		this.id = id;
