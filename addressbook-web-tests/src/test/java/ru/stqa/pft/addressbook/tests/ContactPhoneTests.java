@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
@@ -13,12 +12,33 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactPhoneTests extends TestBase {
 
+
+	@BeforeMethod
+	public void unsurePreconditions() {
+		app.goTo().homePage();
+		if (app.contact().all().size() == 0) {
+			app.contact().create(new ContactData().withLastName("Petrov").withFirstName("Petr")
+					.withAddress("Street 5").withEmail("petrov@mail.ru")
+					.withMobilePhone("+79521458745").withGroup("[none]"));
+		}
+	}
+
 	@Test//(enabled = false)
 	public void testContactPhones() {
 		ContactData contact = app.contact().all().iterator().next();
 		ContactData contactInfoFormEditForm = app.contact().infoFromEditForm(contact);
 
+		assertThat(contact.getAddress(), equalTo(contactInfoFormEditForm.getAddress()));
 		assertThat(contact.getAllPhone(), equalTo(mergePhones(contactInfoFormEditForm)));
+		assertThat(contact.getAllEmail(), equalTo(mergeEmail(contactInfoFormEditForm)));
+
+	}
+
+	private String mergeEmail(ContactData contact) {
+		return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
+				.stream().filter((s) -> !s.equals(""))
+				.collect(Collectors.joining("\n"));
+
 	}
 
 	private String mergePhones(ContactData contact) {
