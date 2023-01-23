@@ -22,6 +22,7 @@ public class ContactHelper extends HelperBase {
 		type(By.name("address"), contactData.getAddress());
 		type(By.name("email"), contactData.getEmail());
 		type(By.name("home"), contactData.getHomePhone());
+		attach(By.name("photo"), contactData.getPhoto());
 
 		if (creation) {
 			clickSelect(By.name("new_group"), contactData.getGroup());
