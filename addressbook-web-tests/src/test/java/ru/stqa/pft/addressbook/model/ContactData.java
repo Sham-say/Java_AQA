@@ -105,13 +105,15 @@ public class ContactData {
 	public String getGroup() {return group;}
 
 
-
 	@Override
 	public String toString() {
 		return "ContactData{" +
-				"id='" + id + '\'' +
+				"id=" + id +
 				", firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
+				", address='" + address + '\'' +
+				", email='" + email + '\'' +
+				", homePhone='" + homePhone + '\'' +
 				'}';
 	}
 
