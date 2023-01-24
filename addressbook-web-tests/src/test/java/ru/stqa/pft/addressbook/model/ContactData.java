@@ -112,8 +112,7 @@ public class ContactData {
 				", firstName='" + firstName + '\'' +
 				", lastName='" + lastName + '\'' +
 				", address='" + address + '\'' +
-				", email='" + email + '\'' +
-				", homePhone='" + homePhone + '\'' +
+				", allPhone='" + allPhone + '\'' +
 				'}';
 	}
 

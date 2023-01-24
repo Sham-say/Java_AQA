@@ -6,7 +6,10 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -18,13 +21,17 @@ import static org.testng.Assert.assertEquals;
 public class ContactCreationTests extends TestBase {
 
 	@DataProvider
-	public Iterator<Object[]> validContacts() {
-		File photo = new File("src/test/resources/stru.png");
+	public Iterator<Object[]> validContacts() throws IOException {
+		//File photo = new File("src/test/resources/stru.png");       //--фото
 		List<Object[]> list = new ArrayList<Object[]>();
-		list.add(new Object[] {new ContactData().withFirstName("FirstName 1").withLastName("LastName 1").withAddress("Hogwars 1").withEmail("test1@mail.com").withHomePhone("89876543211").withPhoto(photo)});
-		list.add(new Object[] {new ContactData().withFirstName("FirstName 2").withLastName("LastName 2").withAddress("Hogwars 2").withEmail("test2@mail.com").withHomePhone("89876543212").withPhoto(photo)});
-		list.add(new Object[] {new ContactData().withFirstName("FirstName 3").withLastName("LastName 3").withAddress("Hogwars 3").withEmail("test3@mail.com").withHomePhone("89876543213").withPhoto(photo)});
-		return list.iterator();
+		BufferedReader reader = new BufferedReader(new FileReader("src/test/resources/contacts.csv"));
+		String line = reader.readLine();
+		while (line != null) {
+			String[] split = line.split(";");
+			list.add(new Object[] {new ContactData().withLastName(split[0]).withFirstName(split[1]).withAddress(split[2]).withAllPhone(split[3])});
+			line = reader.readLine();
+		}
+				return list.iterator();
 	}
 	@Test(dataProvider = "validContacts")//(enabled = false)
 	public void addContact(ContactData contact){
