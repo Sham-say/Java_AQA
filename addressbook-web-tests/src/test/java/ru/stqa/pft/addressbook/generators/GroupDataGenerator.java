@@ -30,8 +30,6 @@ public class GroupDataGenerator {
 			return;
 		}
 		generator.run();
-		//int count = Integer.parseInt(args[0]);
-		//File file = new File(args[1]);
 	}
 
 	private void run() throws IOException {
@@ -75,8 +73,7 @@ public class GroupDataGenerator {
 	private List<GroupData> generateGroups(int count) {
 		List<GroupData> groups = new ArrayList<GroupData>();
 		for (int i = 0; i < count; i += 1 ) {
-			groups.add(new GroupData().withName(String.format("test %s", i))
-					.withHeader(String.format("header %s", i)).withFooter(String.format("footer %s", i)));
+			groups.add(new GroupData().withName(String.format("test %s", i)).withHeader(String.format("header %s", i)).withFooter(String.format("footer %s", i)));
 		}
 		return groups;
 	}
