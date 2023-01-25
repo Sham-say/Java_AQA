@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+//Задание №13: Параметризовать тесты для создания групп и контактов
 public class GroupCreationTests extends TestBase {
 	@DataProvider
 	public Iterator<Object[]> validGroupsFromXml() throws IOException {
