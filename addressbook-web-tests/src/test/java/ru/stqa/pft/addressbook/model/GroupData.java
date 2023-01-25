@@ -7,7 +7,6 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import java.util.Objects;
 
 @XStreamAlias("group")
-
 public final class GroupData {
 	@XStreamOmitField
 	private int id = Integer.MAX_VALUE;

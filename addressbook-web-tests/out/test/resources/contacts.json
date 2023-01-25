@@ -1,5 +1,20 @@
 [
-  {},
-  {},
-  {}
+  {
+    "firstName": "Shamil 0",
+    "lastName": "Sayakhov 0",
+    "address": "Moscow",
+    "allPhone": "+71112223344"
+  },
+  {
+    "firstName": "ShamilJson 1",
+    "lastName": "SayakhovJson 1",
+    "address": "Moscow",
+    "allPhone": "+71112223344"
+  },
+  {
+    "firstName": "ShamilJson 2",
+    "lastName": "Sayakhov 2",
+    "address": "Moscow",
+    "allPhone": "+71112223344"
+  }
 ]

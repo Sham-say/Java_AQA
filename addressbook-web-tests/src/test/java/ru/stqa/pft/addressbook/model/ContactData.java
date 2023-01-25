@@ -1,12 +1,15 @@
 package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 import java.io.File;
 import java.util.Objects;
 
+@XStreamAlias("contacts")
 public class ContactData {
-
+	@XStreamOmitField
 	private int id = Integer.MAX_VALUE;
 	@Expose
 	private String firstName;
@@ -126,9 +129,7 @@ public class ContactData {
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-
 		ContactData that = (ContactData) o;
-
 		if (id != that.id) return false;
 		if (!Objects.equals(firstName, that.firstName)) return false;
 		return Objects.equals(lastName, that.lastName);
