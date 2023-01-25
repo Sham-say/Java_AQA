@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+
+//Задание №12: Реализовать генераторы тестовых данных
 public class GroupDataGenerator {
 	@Parameter(names = "-c", description = "Group count")
 	public int count;
