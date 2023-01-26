@@ -44,7 +44,7 @@ public class ContactCreationTests extends TestBase {
 	@Test(dataProvider = "validContactsFromXml")//(enabled = false)
 	public void addContact(ContactData contact){
 		app.goTo().homePage();
-		Contacts before = app.contact().all();
+		Contacts before = app.db().contacts();
 		app.contact().initContactCreation();
 		if (app.contact().isThereAGroupWithContact()) {
 			app.goTo().groupPage();
@@ -52,7 +52,7 @@ public class ContactCreationTests extends TestBase {
 		}
 		app.contact().create(contact);
 		assertThat(app.contact().count(), equalTo(before.size() + 1));
-		Contacts after = app.contact().all();
+		Contacts after = app.db().contacts();
 		assertThat(after, equalTo(before.withAdded(
 				contact.withId(after.stream().mapToInt((c)-> c.getId()).max().getAsInt()))));
 	}
