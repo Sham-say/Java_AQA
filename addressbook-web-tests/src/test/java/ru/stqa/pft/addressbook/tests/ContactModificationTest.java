@@ -8,7 +8,6 @@ import ru.stqa.pft.addressbook.model.GroupData;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.testng.Assert.assertEquals;
 
 public class ContactModificationTest extends TestBase {
 
@@ -36,5 +35,7 @@ public class ContactModificationTest extends TestBase {
 		assertThat(app.group().count(), equalTo(before.size()));
 		Contacts after = app.db().contacts();
 		assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
+		verifyContactListInUI();
 	}
+
 }
