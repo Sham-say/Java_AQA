@@ -1,2 +1,3 @@
-# Java_AQA
-Репозиторий обучения java для автоматизации
+# java_test
+
+Сourses
